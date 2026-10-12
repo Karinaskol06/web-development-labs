@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Студентський ІТ-клуб «Code Space»</title>
+  </head>
+  <body>
+    <header>
+      <h1>Студентський ІТ-клуб «Code Space»</h1>
+      <p>
+        Місце для навчання, обміну досвідом і спільної роботи над проєктами.
+      </p>
+
+      <nav>
+        <ul>
+          <li><a href="#about">Про клуб</a></li>
+          <li><a href="#meetings">Найближчі зустрічі</a></li>
+          <li><a href="#directions">Напрями роботи</a></li>
+          <li><a href="#join">Приєднатися</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>Про клуб</h2>
+        <p>
+          «Code Space» об’єднує студентів, які цікавляться веброзробкою,
+          аналізом даних і проєктуванням цифрових продуктів.
+        </p>
+
+        <figure>
+          <img
+            src="images/club-meeting.jpg"
+            width="800"
+            alt="Студенти обговорюють програмний код під час зустрічі клубу"
+          />
+          <figcaption>Щотижнева практична зустріч учасників клубу.</figcaption>
+        </figure>
+      </section>
+
+      <section id="meetings">
+        <h2>Найближчі зустрічі</h2>
+        <p>Зустрічі відбуваються щосереди в аудиторії 305.</p>
+
+        <table>
+          <caption>
+            Розклад зустрічей на жовтень 2026 року
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Дата</th>
+              <th scope="col">Тема</th>
+              <th scope="col">Формат</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><time datetime="2026-10-07">7 жовтня</time></th>
+              <td>Семантичний HTML</td>
+              <td>Воркшоп</td>
+            </tr>
+            <tr>
+              <th scope="row"><time datetime="2026-10-14">14 жовтня</time></th>
+              <td>Основи доступності</td>
+              <td>Практикум</td>
+            </tr>
+            <tr>
+              <th scope="row"><time datetime="2026-10-21">21 жовтня</time></th>
+              <td>Презентація студентських проєктів</td>
+              <td>Мініконференція</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="directions">
+        <h2>Напрями роботи</h2>
+
+        <article>
+          <h3>Веброзробка</h3>
+          <p>
+            Учасники створюють доступні вебсторінки та вивчають клієнт-серверну
+            взаємодію.
+          </p>
+        </article>
+
+        <article>
+          <h3>Аналіз даних</h3>
+          <p>
+            Команда опрацьовує відкриті набори даних і готує візуальні звіти.
+          </p>
+        </article>
+
+        <article>
+          <h3>Командні проєкти</h3>
+          <p>
+            Студенти розподіляють ролі, планують роботу та презентують спільний
+            результат.
+          </p>
+        </article>
+      </section>
+
+      <aside>
+        <h2>Що взяти на першу зустріч</h2>
+        <p>Візьміть ноутбук із зарядним пристроєм і студентський квиток.</p>
+      </aside>
+
+      <section id="join">
+        <h2>Приєднатися до клубу</h2>
+
+        <form action="#" method="post">
+          <p>
+            <label for="full-name">Ім’я та прізвище</label><br />
+            <input
+              id="full-name"
+              name="fullName"
+              type="text"
+              autocomplete="name"
+              required
+            />
+          </p>
+
+          <p>
+            <label for="email">Електронна пошта</label><br />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </p>
+
+          <fieldset>
+            <legend>Оберіть основний напрям</legend>
+
+            <input
+              id="web"
+              name="direction"
+              type="radio"
+              value="web"
+              required
+            />
+            <label for="web">Веброзробка</label><br />
+
+            <input id="data" name="direction" type="radio" value="data" />
+            <label for="data">Аналіз даних</label><br />
+
+            <input
+              id="projects"
+              name="direction"
+              type="radio"
+              value="projects"
+            />
+            <label for="projects">Командні проєкти</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Які формати вас цікавлять?</legend>
+
+            <input
+              id="workshops"
+              name="formats"
+              type="checkbox"
+              value="workshops"
+            />
+            <label for="workshops">Воркшопи</label><br />
+
+            <input
+              id="lectures"
+              name="formats"
+              type="checkbox"
+              value="lectures"
+            />
+            <label for="lectures">Лекції</label><br />
+
+            <input
+              id="projects-format"
+              name="formats"
+              type="checkbox"
+              value="projects"
+            />
+            <label for="projects-format">Робота над проєктами</label>
+          </fieldset>
+
+          <p>
+            <label for="comment">Коротко розкажіть про свої очікування</label
+            ><br />
+            <textarea id="comment" name="comment" rows="5" cols="40"></textarea>
+          </p>
+
+          <p>
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent">Погоджуюся на обробку введених даних</label>
+          </p>
+
+          <button type="submit">Надіслати заявку</button>
+        </form>
+      </section>
+    </main>
+
+    <footer id="contacts">
+      <h2>Контакти</h2>
+      <address>
+        Координатор клубу: Ірина Петренко<br />
+        Аудиторія 305, навчальний корпус № 1<br />
+        <a href="mailto:codespace@example.edu.ua">codespace@example.edu.ua</a
+        ><br />
+        <a href="tel:+380440000001">+380 44 000 00 01</a>
+      </address>
+      <p>Приклад виконав: Іваненко Іван, група ІН-101.</p>
+    </footer>
+  </body>
+</html>
