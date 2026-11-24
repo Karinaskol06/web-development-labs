@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body id="top">
     <!-- Хедер: заголовок, вступний текст і навігація -->
@@ -80,22 +81,38 @@
         </div>
       </section>
 
-      <!-- Розділ Програма: нумерований список і таблиця з розкладом -->
+      <!-- Розділ Програма: фільтр, пошук і динамічна таблиця з розкладом -->
       <section id="program" class="section section-muted">
         <div class="container">
           <h2>Програма</h2>
 
           <div class="program-layout">
-            <div class="program-list-wrap">
-              <h3>Хронологія подій</h3>
-              <ol class="program-list">
-                <li>11:00 — реєстрація учасників</li>
-                <li>11:30 — презентація факультету</li>
-                <li>12:15 — знайомство з освітніми програмами</li>
-                <li>13:00 — демонстрація студентських проєктів</li>
-                <li>14:00 — запитання та відповіді</li>
-                <li>14:30 — екскурсія університетом</li>
-              </ol>
+            <div class="program-controls">
+              <h3>Фільтр і пошук</h3>
+
+              <div class="form-field">
+                <label for="category-filter">Категорія події</label>
+                <select id="category-filter">
+                  <option value="all">Усі категорії</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="event-search">Пошук за назвою</label>
+                <input
+                  id="event-search"
+                  type="search"
+                  placeholder="Введіть назву події…"
+                  autocomplete="off"
+                />
+              </div>
+
+              <p
+                id="program-status"
+                class="program-status"
+                role="status"
+                aria-live="polite"
+              ></p>
             </div>
 
             <div class="table-responsive">
@@ -108,40 +125,10 @@
                     <th scope="col">Час</th>
                     <th scope="col">Подія</th>
                     <th scope="col">Локація</th>
+                    <th scope="col">Категорія</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><time datetime="11:00">11:00</time></th>
-                    <td>Реєстрація учасників</td>
-                    <td>Хол навчального корпусу № 2</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><time datetime="11:30">11:30</time></th>
-                    <td>Презентація факультету</td>
-                    <td>Аудиторія 201</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><time datetime="12:15">12:15</time></th>
-                    <td>Знайомство з освітніми програмами</td>
-                    <td>Аудиторія 201</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><time datetime="13:00">13:00</time></th>
-                    <td>Демонстрація студентських проєктів</td>
-                    <td>Комп’ютерна лабораторія 305</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><time datetime="14:00">14:00</time></th>
-                    <td>Запитання та відповіді</td>
-                    <td>Аудиторія 201</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><time datetime="14:30">14:30</time></th>
-                    <td>Екскурсія університетом</td>
-                    <td>Збір у холі корпусу № 2</td>
-                  </tr>
-                </tbody>
+                <tbody id="program-list"></tbody>
               </table>
             </div>
           </div>
@@ -184,7 +171,6 @@
                     і практичної підготовки.
                   </p>
                 </article>
-                <!-- Друге зображення: викладач -->
                 <figure class="participant-card card-image">
                   <img
                     src="images/coding.jpg"
@@ -206,7 +192,6 @@
                     виконаних під час навчання.
                   </p>
                 </article>
-                <!-- Третє зображення: студентський проєкт -->
                 <figure class="participant-card card-image">
                   <img
                     src="images/student-project.jpg"
@@ -235,7 +220,7 @@
         </div>
       </aside>
 
-      <!-- Розділ Реєстрація: форма з полями -->
+      <!-- Розділ Реєстрація: форма з полями та динамічний список учасників -->
       <section id="registration" class="section section-accent">
         <div class="container form-layout">
           <div class="form-info">
@@ -246,7 +231,7 @@
             </p>
           </div>
 
-          <form action="#" method="post">
+          <form id="registration-form" action="#" method="post" novalidate>
             <fieldset>
               <legend>Контактні дані</legend>
 
@@ -320,57 +305,12 @@
             </fieldset>
 
             <fieldset>
-              <legend>Заходи програми, які відвідаєте</legend>
-              <div class="checkbox-group">
-                <div class="form-check">
-                  <input
-                    id="event-presentation"
-                    name="events"
-                    type="checkbox"
-                    value="presentation"
-                  />
-                  <label for="event-presentation">Презентація факультету</label>
-                </div>
-                <div class="form-check">
-                  <input
-                    id="event-programs"
-                    name="events"
-                    type="checkbox"
-                    value="programs"
-                  />
-                  <label for="event-programs"
-                    >Знайомство з освітніми програмами</label
-                  >
-                </div>
-                <div class="form-check">
-                  <input
-                    id="event-projects"
-                    name="events"
-                    type="checkbox"
-                    value="projects"
-                  />
-                  <label for="event-projects"
-                    >Демонстрація студентських проєктів</label
-                  >
-                </div>
-                <div class="form-check">
-                  <input
-                    id="event-qa"
-                    name="events"
-                    type="checkbox"
-                    value="qa"
-                  />
-                  <label for="event-qa">Запитання та відповіді</label>
-                </div>
-                <div class="form-check">
-                  <input
-                    id="event-tour"
-                    name="events"
-                    type="checkbox"
-                    value="tour"
-                  />
-                  <label for="event-tour">Екскурсія університетом</label>
-                </div>
+              <legend>Захід програми</legend>
+              <div class="form-field">
+                <label for="event-select">Оберіть один захід</label>
+                <select id="event-select" name="event" required>
+                  <option value="">Оберіть захід…</option>
+                </select>
               </div>
             </fieldset>
 
@@ -387,10 +327,25 @@
               <label for="consent">Погоджуюся на обробку введених даних</label>
             </div>
 
+            <p
+              id="form-message"
+              class="form-message"
+              role="status"
+              aria-live="polite"
+            ></p>
+
             <button type="submit" class="btn-submit">
               Надіслати реєстрацію
             </button>
           </form>
+
+          <div class="registered-block">
+            <h3>
+              Зареєстровані учасники:
+              <span id="participant-count">0</span>
+            </h3>
+            <ul id="participant-list" class="participant-list"></ul>
+          </div>
         </div>
       </section>
     </main>

@@ -121,7 +121,7 @@ h3 {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
-/* ---------- Контейнер ---------- */
+/* Контейнер */
 .container {
   width: 100%;
   max-width: var(--content-max);
@@ -1015,4 +1015,188 @@ textarea:focus-visible {
   .form-layout {
     gap: 1.5rem;
   }
+}
+
+/* Стилізація блоку з фільтром та пошуком */
+.program-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: var(--space-md);
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--olive);
+}
+
+.program-controls h3 {
+  margin: 0;
+  color: var(--blue);
+}
+
+/* Додаємо стилі для select (фільтр та форма) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+select:hover,
+textarea:hover {
+  border-color: color-mix(in srgb, var(--olive) 60%, var(--line));
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="tel"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--blue);
+  outline: var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 18%, transparent);
+}
+
+/* Повідомлення про кількість знайдених подій */
+.program-status {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.program-status.is-empty {
+  color: #b00020;
+}
+
+/* Повідомлення форми */
+.form-message {
+  display: none;
+  margin: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.form-message.error,
+.form-message.success {
+  display: block;
+}
+
+.form-message.error {
+  background: #fdecea;
+  border: 1px solid #f5c2c0;
+  color: #b00020;
+}
+
+.form-message.success {
+  background: #e7f6ec;
+  border: 1px solid #b7e1c5;
+  color: #146c43;
+}
+
+/* Підсвічування полів з помилкою */
+.field-error {
+  border-color: #b00020 !important;
+  outline: 2px solid rgba(176, 0, 32, 0.25);
+  outline-offset: 1px;
+}
+
+/* Стилізація блоку зареєстрованих учасників */
+.registered-block {
+  grid-column: 1 / -1;
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 10px 10px 0 var(--gold);
+}
+
+.registered-block h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--blue);
+}
+
+/* Список зареєстрованих учасників */
+.participant-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.participant-list li {
+  padding: 0.85rem 1rem;
+  background: var(--canvas);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Адаптація для мобільних пристроїв */
+@media (max-width: 767px) {
+  .registered-block {
+    box-shadow: 5px 5px 0 var(--gold);
+  }
+}
+
+/* Оновлені стилі для всіх полів вводу, включаючи пошук та select */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+select,
+textarea {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Ефект при наведенні */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="search"]:hover,
+select:hover,
+textarea:hover {
+  border-color: color-mix(in srgb, var(--olive) 60%, var(--line));
+}
+
+/* Ефект при фокусуванні (кліку) */
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="search"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--blue);
+  outline: var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 18%, transparent);
 }
